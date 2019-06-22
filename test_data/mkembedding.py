@@ -13,12 +13,12 @@ def rd_split(text):
     return text
 
 
-train_df=pd.read_csv("../dataset/with_stop.csv")
+train_df=pd.read_csv("with_stop.csv")
 for q in ['q1', 'q2']:
     train_df[q + '_n'] = train_df[q]
 vocabs={}
 vocabs_cnt=0
-word2vec=KeyedVectors.load_word2vec_format("../dataset/glove_word2vec.txt")
+word2vec=KeyedVectors.load_word2vec_format("glove_word2vec.txt")
 for i,row in train_df.iterrows():
     if i != 0 and i % 1000 == 0:
         print(i)

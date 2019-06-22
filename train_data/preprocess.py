@@ -40,7 +40,7 @@ def clean_split(text):
     text = text.split()
     return text
     
-TRAIN_FILE="../dataset/train.csv"
+TRAIN_FILE="train.csv"
 train_df=pd.read_csv(TRAIN_FILE)
 
 
@@ -55,8 +55,8 @@ for idx, row in train_df.iterrows():
     for i,q in enumerate(['question1','question2']):
         processed_list=[]
         for word in clean_split(row[q]):
-            
-    
+            if word in stops:
+                continue
             processed_list.append(word)
         processed_str=' '.join(processed_list)
         qlist[i].append(processed_str)
