@@ -28,8 +28,8 @@ for i,row in train_df.iterrows():
             if word not in vocabs:
                 vocabs_cnt+=1
                 vocabs[word]=vocabs_cnt
-        q_idx.append(vocabs[word])
-    train_df.at[i,q+'_n']=q_idx
+            q_idx.append(vocabs[word])
+        train_df.at[i,q+'_n']=q_idx
 embedding=1*np.random.randn(len(vocabs)+1,300)
 embedding[0]=0
 
